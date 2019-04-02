@@ -1,6 +1,5 @@
 package com.patryk.app;
 
-import com.patryk.app.output.OutputAPI;
 import java.io.InputStream;
 
 /**
@@ -8,16 +7,13 @@ import java.io.InputStream;
  */
 class Game {
 
+    private final MenuManager menuManager;
 
-    private final RoundManager roundManager;
-    private final OutputAPI outputAPI;
-
-    Game(InputStream userInputProvider){
-        this.roundManager = new RoundManager();
-        this.outputAPI = new OutputAPI();
+    Game(InputStream inputStream){
+        this.menuManager = new MenuManager(inputStream);
     }
 
     void run() {
-        roundManager.doMainLoop();
+        menuManager.runMenu();
     }
 }

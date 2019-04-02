@@ -1,16 +1,23 @@
 package com.patryk.app.input;
 
 
+import java.io.InputStream;
+
 /**
  * @author Patryk Kucharski
  */
 public class InputAPI {
 
-    private static InputAPI inputAPIInstance = new InputAPI();
+    private ScannerWrapper scannerWrapper;
 
-    public static InputAPI getInputAPIInstance(){
-        return inputAPIInstance;
+    public InputAPI(InputStream inputStream){
+        scannerWrapper = new ScannerWrapper(inputStream);
     }
+
+    public String getInputFromUser(){
+        return scannerWrapper.returnNextLine();
+    }
+
 
 
 }

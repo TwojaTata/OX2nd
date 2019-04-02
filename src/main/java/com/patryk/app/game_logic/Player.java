@@ -3,27 +3,29 @@ package com.patryk.app.game_logic;
 /**
  * @author Patryk Kucharski
  */
-class Player {
+public class Player {
 
     private final String name;
     private boolean hasTurn;
     private final Marker marker;
+    private int score;
 
-    public Player(String name, boolean hasTurn, Marker marker) {
+    public Player(String name, boolean hasTurn, Marker marker, int score) {
         this.name = name;
         this.hasTurn = hasTurn;
         this.marker = marker;
+        this.score = score;
     }
 
-    public Marker getMarker() {
+    Marker getMarker() {
         return marker;
     }
 
-    public boolean hasTurn() {
+    boolean hasTurn() {
         return hasTurn;
     }
 
-    public void setTurn(boolean hasTurn) {
+    void setTurn(boolean hasTurn) {
         this.hasTurn = hasTurn;
     }
 

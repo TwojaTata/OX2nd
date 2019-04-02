@@ -19,7 +19,7 @@ class LanguageManager {
         resourceBundleInstance = ResourceBundle.getBundle("OX", new Locale(languageCode, countryCode));
     }
 
-//    ResourceBundle getResourceBundleInstance() {
-//        return resourceBundleInstance;
-//    }
+    ResourceBundle getResourceBundleInstance() {
+        return resourceBundleInstance;
+    }
 }

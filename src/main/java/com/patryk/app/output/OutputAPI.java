@@ -1,8 +1,5 @@
 package com.patryk.app.output;
 
-import java.io.OutputStream;
-import java.util.function.Consumer;
-
 /**
  * @author Patryk Kucharski
  */
@@ -16,10 +13,27 @@ public class OutputAPI {
     }
 
     public void print(String message){
-        printer.printMessage(message);
+        printer.print(message);
     }
 
     public void setLanguage(String languageVersion, String countryCode){
         languageManager.setLanguageVersion(languageVersion, countryCode);
+    }
+
+    public void printMessageToUserNextLine(String key) {
+        printer.printMessageToUserNextLine(key);
+    }
+
+    public void displayMenu() {
+
+        //todo menu
+    }
+
+    public void printInLine(String message) {
+        printer.printInLine(message);
+    }
+
+    public void printMessageToUserInLine(String player) {
+        printer.printMessageToUserInLine(player);
     }
 }
