@@ -10,7 +10,7 @@ public class Board {
     private final Marker[][] board;
     private BoardConfig boardConfig;
 
-    private Board(BoardConfig boardConfig){
+    Board(BoardConfig boardConfig){
         board = new Marker[boardConfig.rows][boardConfig.columns];
         this.boardConfig = boardConfig;
     }

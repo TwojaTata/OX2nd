@@ -14,7 +14,7 @@ public class BoardConfig {
     int winningConditionLength;
     List<Player> players;
 
-    private BoardConfig(int rows, int columns, int winningConditionLength) {
+    BoardConfig(int rows, int columns, int winningConditionLength) {
         this.rows = rows;
         this.columns = columns;
         this.winningConditionLength = winningConditionLength;

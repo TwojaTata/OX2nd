@@ -11,7 +11,8 @@ public class GameLogicAPI {
     private Coordinates coordinates;
 
     public GameLogicAPI(){
-        board = initializeDefaultBoard();
+        boardConfig = new BoardConfig(3,3,3);
+        board = new Board(boardConfig);
         this.gameJudge = new GameJudge(board);
     }
 
@@ -23,7 +24,7 @@ public class GameLogicAPI {
         boardConfig.addPlayer(player);
     }
 
-    BoardConfig setBoardConfig (int rows, int columns, int winningCondition){
+    public BoardConfig setBoardConfig (int rows, int columns, int winningCondition){
         return boardConfig.setBoardConfig(rows,columns,winningCondition);
     }
 
@@ -35,10 +36,10 @@ public class GameLogicAPI {
         board.putMarker(coordinates, currentPlayer);
     }
 
-    public Board initializeDefaultBoard(){
-        boardConfig.setDefaultBoardConfig();
-        return board.initializeDefaultBoard();
-    }
+    private Board initializeDefaultBoard(){
+        return board.initializeDefaultBoard();// todo gdzie tworzę stół
+    }//todo nullpointer
+
 
     public boolean checkIfCurrentPlayerWon(Coordinates coordinates){
         return gameJudge.checkIfCurrentPlayerWon(coordinates);

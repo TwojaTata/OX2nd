@@ -43,7 +43,7 @@ class RoundManager {
     void doARound(Board board, int roundNumber) {
 
         outputAPI.printMessageToUserNextLine("RoundNumber");
-        outputAPI.printInLine(String.valueOf(numberOfRounds));
+        outputAPI.printInLine(String.valueOf(roundNumber));
 
         while (!weHaveAWinner || !weHaveADraw) {
             turnManager.doATurn(board);

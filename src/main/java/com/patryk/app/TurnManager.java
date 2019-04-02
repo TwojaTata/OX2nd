@@ -2,7 +2,6 @@ package com.patryk.app;
 
 import com.patryk.app.game_logic.Board;
 import com.patryk.app.game_logic.GameLogicAPI;
-import com.patryk.app.game_logic.Player;
 import com.patryk.app.input.InputAPI;
 import com.patryk.app.output.OutputAPI;
 
@@ -28,9 +27,9 @@ class TurnManager {
         //TODO implement
 
         gameLogicAPI.getCurrentBoardState().toString();//todo to zamienic na wyświetlanie
-        outputAPI.printMessageToUserNextLine("insertRow");
+        outputAPI.printMessageToUserNextLine("insertRowNumber");
         row = inputAPI.getInputFromUser();
-        outputAPI.printMessageToUserNextLine("insertColumn");
+        outputAPI.printMessageToUserNextLine("insertColumnNumber");
         column = inputAPI.getInputFromUser();
         //   gameLogicAPI.setCoordinates();//todo w tej metodzie odnośnik do validacji
         gameLogicAPI.putMarkerOntoBoard(gameLogicAPI.getCoordinates(), gameLogicAPI.getCurrentPlayer());
