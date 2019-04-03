@@ -41,7 +41,7 @@ class RoundManager {
     }
 
     private void changeStartingPlayer() {
-
+        startingPlayer = gameLogicAPI.changeStartingPlayer(startingPlayer);
     }
 
     private void doARound(int roundNumber) {

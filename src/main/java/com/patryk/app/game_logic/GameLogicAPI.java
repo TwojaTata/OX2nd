@@ -14,8 +14,8 @@ public class GameLogicAPI {
 
     public GameLogicAPI() {//todo logika w konstruktorze!!!
         boardConfig = new BoardConfig(3, 3, 3);
-        boardConfig.addPlayer(new Player("Player1", true, Marker.CIRCLE,0));
-        boardConfig.addPlayer(new Player("Player1", false, Marker.CROSS,0));
+        boardConfig.addPlayer(new Player("Player1", true, Marker.CIRCLE, 0));
+        boardConfig.addPlayer(new Player("Player1", false, Marker.CROSS, 0));
         board = new Board(boardConfig);
         board.fillBoardWithBlanks();
         this.gameJudge = new GameJudge(board);
@@ -96,5 +96,9 @@ public class GameLogicAPI {
     public void setBoard(Board board) {
         this.board = board;
         gameJudge.setBoard(board);
+    }
+
+    public Player changeStartingPlayer(Player startingPlayer) {
+        return boardConfig.changeStartingPlayer(startingPlayer);
     }
 }

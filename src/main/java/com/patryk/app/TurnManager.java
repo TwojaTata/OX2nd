@@ -1,6 +1,5 @@
 package com.patryk.app;
 
-import com.patryk.app.game_logic.Board;
 import com.patryk.app.game_logic.GameLogicAPI;
 import com.patryk.app.input.InputAPI;
 import com.patryk.app.output.OutputAPI;
@@ -12,7 +11,7 @@ import com.patryk.app.output.OutputAPI;
 class TurnManager {
 
     /**
-     * TODO kurwa mać. Po kiego chuja pchasz wszędzie ten board?
+     *
      */
 
     private OutputAPI outputAPI;
@@ -31,7 +30,7 @@ class TurnManager {
 
     void doATurn() {
         gameLogicAPI.displayBoard();
-        makeSureMoveIsValid(); // tego ifa może tu nie być, a i tak zadziała
+        makeSureMoveIsValid();
         putMarkerOntoBoard(intRow, intColumn);
 
         if (thereIsAWinner()) {
@@ -41,6 +40,7 @@ class TurnManager {
             finalizeRoundWeHaveADraw();
         }
         gameLogicAPI.switchTurns();
+        //todo poddawanie się
     }
 
     private void finalizeRoundWinnerIsPresent() {
@@ -83,7 +83,7 @@ class TurnManager {
         do {
             outputAPI.printMessageToUserNextLine("insertColumnNumber");
             column = inputAPI.getInputFromUser();
-        } while (!inputAPI.validateRow(column, gameLogicAPI.getCurrentConfig().rows));
+        } while (!inputAPI.validateColumn(column, gameLogicAPI.getCurrentConfig().rows));
         return column;
     }
 

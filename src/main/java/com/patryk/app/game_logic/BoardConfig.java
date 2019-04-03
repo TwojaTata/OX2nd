@@ -71,4 +71,24 @@ public class BoardConfig {//todo niepubliczne?
 
         //todo zaimplementowac
     }
+
+    Player changeStartingPlayer(Player startingPlayer) { //todo nie działa tak jak powinno
+
+        for (Player player: players) {
+            if (!startingPlayer.equals(player)){
+                if (!player.hasTurn()){
+                    player.setTurn(true);
+                }
+            }else {
+                player.setTurn(false);
+            }
+        }
+        for (Player player: players
+             ) {
+            if (startingPlayer.equals(player)){
+                return player;
+            }
+        }
+        return null;
+    }
 }

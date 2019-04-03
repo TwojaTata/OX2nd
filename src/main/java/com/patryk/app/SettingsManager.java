@@ -150,6 +150,7 @@ class SettingsManager {
         return markers;
 
     }
+
     private boolean validateName(String name) {
         if (name == null) {
             return false;
@@ -162,6 +163,7 @@ class SettingsManager {
         }
         return true;
     }
+
     private boolean validateMarker(String markerPlayerOne) {
 
         if (markerPlayerOne == null) {

@@ -11,11 +11,11 @@ public class OutputAPI {
         this.printer = new Printer();
     }
 
-    public void print(String message){
+    public void print(String message) {
         printer.print(message);
     }
 
-    public void setLanguage(String languageVersion, String countryCode){
+    public void setLanguage(String languageVersion, String countryCode) {
         printer.setLanguage(languageVersion, countryCode);
     }
 
