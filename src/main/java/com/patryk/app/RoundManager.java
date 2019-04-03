@@ -11,18 +11,19 @@ import com.patryk.app.output.OutputAPI;
 class RoundManager {
 
     private final TurnManager turnManager;
-    private final InputAPI inputAPI;
+    private final InputAPI inputAPI;//todo niepotrzebne?
     private final OutputAPI outputAPI;
     private final GameLogicAPI gameLogicAPI;
     private int numberOfRounds;
+    private boolean gameEnded = false;
     private boolean weHaveAWinner = false;
     private boolean weHaveADraw = false;
 
-    RoundManager(OutputAPI outputAPI, InputAPI inputAPI, int numberOfRounds) {
+    RoundManager(GameLogicAPI gameLogicAPI, OutputAPI outputAPI, InputAPI inputAPI, int numberOfRounds) {
         this.inputAPI = inputAPI;
         this.outputAPI = outputAPI;
         this.numberOfRounds = numberOfRounds;
-        this.gameLogicAPI = new GameLogicAPI();
+        this.gameLogicAPI = gameLogicAPI;
         turnManager = new TurnManager(inputAPI, outputAPI, gameLogicAPI);
 
     }
@@ -31,24 +32,29 @@ class RoundManager {
 
         for (int i = 0; i < numberOfRounds; i++) {
             gameLogicAPI.resetBoard(board);
+            resetGameOutcome();
+            gameEnded = false;
             doARound(board, i);
             if (weHaveAWinner || weHaveADraw) {
                 break;
             }
         }
-
-        //TODO implement
     }
 
-    void doARound(Board board, int roundNumber) {
+    private void doARound(Board board, int roundNumber) {
 
-        outputAPI.printMessageToUserNextLine("RoundNumber");
-        outputAPI.printInLine(String.valueOf(roundNumber));
-
-        while (!weHaveAWinner || !weHaveADraw) {
+        outputAPI.printMessageToUserInLine("RoundNumber");
+        outputAPI.printInLine(String.valueOf(roundNumber + 1));
+        outputAPI.print("");
+        while (!gameEnded) {
             turnManager.doATurn(board);
+            gameEnded = turnManager.checkIfGameEnded();
         }
+    }
 
+    void resetGameOutcome(){
+        turnManager.doWeHaveAWinner = false;
+        turnManager.doWeHaveADraw = false;
     }
 
     void giveAwayPointsToPlayers() {

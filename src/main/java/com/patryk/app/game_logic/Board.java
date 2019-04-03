@@ -5,7 +5,7 @@ import java.util.Arrays;
 /**
  * @author Patryk Kucharski
  */
-public class Board {
+public class Board {//todo niepubliczne?
 
     private final Marker[][] board;
     private BoardConfig boardConfig;
@@ -23,15 +23,51 @@ public class Board {
         return  boardConfig;
     }
 
-    @Override
-    public String toString() {
-        return "Board{" +
-                "board=" + Arrays.toString(board) +
-                ", boardConfig=" + boardConfig +
-                '}';
+//    @Override
+//    public String toString() {
+////        return "Board{" +
+////                "board=" + Arrays.toString(board) +
+////                ", boardConfig=" + boardConfig +
+////                '}';
+//
+    void displayBoard(){ //todo poprawić
+            StringBuilder stringBuilder = new StringBuilder();
 
-        //todo drukowanie!!! stołu
+            System.out.print("   ");
+            for (int i = 0; i < boardConfig.columns; i++) {
+                if (i + 1 > 9) {
+                    System.out.print("|" + (i + 1) + " ");
+                } else {
+                    System.out.print("|" + (i + 1) + "  ");
+                }
+            }
+            System.out.print("|");
+            System.out.println();
+            for (int k = 0; k < boardConfig.columns + 1; k++) {
+                System.out.print("----");
+            }
+            for (int i = 0; i < boardConfig.rows; i++) {
+                System.out.println();
+                if (i + 1 > 9) {
+                    System.out.print((i + 1) + " ");
+                } else {
+                    System.out.print((i + 1) + "  ");
+                }
+                for (int j = 0; j < boardConfig.columns; j++) {
+                    System.out.print("| " + board[i][j].valueToDisplay + " ");
+                }
+                System.out.print("|");
+                System.out.println();
+                for (int k = 0; k < boardConfig.columns + 1; k++) {
+                    System.out.print("----");
+                }
+            }
+            System.out.println();
+            System.out.println();
+
     }
+        //todo drukowanie!!! stołu
+
     /**
      * Sets up a board filled with Marker.BLANK enum,
      * which is initial state of board
@@ -58,7 +94,7 @@ public class Board {
     }
 
     Board initializeDefaultBoard(){
-        Board board = new Board(boardConfig.setDefaultBoardConfig());
+        Board board = new Board(BoardConfig.setDefaultBoardConfig());
         board.fillBoardWithBlanks();
         return board;
     }

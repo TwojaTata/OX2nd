@@ -25,15 +25,18 @@ public class OutputAPI {
     }
 
     public void displayMenu() {
-
-        //todo menu
+        printer.printMenu();
     }
 
     public void printInLine(String message) {
         printer.printInLine(message);
     }
 
-    public void printMessageToUserInLine(String player) {
-        printer.printMessageToUserInLine(player);
+    public void printMessageToUserInLine(String key) {
+        printer.printMessageToUserInLine(key);
+    }
+
+    public void displayLanguageMenu() {
+        printer.printLanguageMenu();
     }
 }

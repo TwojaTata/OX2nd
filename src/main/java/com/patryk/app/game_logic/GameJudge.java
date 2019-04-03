@@ -149,4 +149,8 @@ class GameJudge {
                 .collect(Collectors.toList())
                 .get(0);
     }
+
+    boolean checkIfMoveIsLegal(int row, int column, Board board) {
+        return board.getCurrentBoard()[row][column].equals(Marker.BLANK);
+    }
 }

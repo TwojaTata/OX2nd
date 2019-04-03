@@ -30,4 +30,19 @@ class Printer {
     void printInLine(String message) {
         System.out.print(message);
     }
+
+    void printMenu() {
+        printMessageToUserNextLine("chooseOption");
+        printMessageToUserNextLine("option1Play");
+        printMessageToUserNextLine("option2ConfigureSettings");
+        printMessageToUserNextLine("option3SetLanguage");
+        printMessageToUserNextLine("exitToCloseTheGame");
+    }
+
+    void printLanguageMenu() {
+        printMessageToUserNextLine("chooseLanguage");
+        printMessageToUserNextLine("english");
+        printMessageToUserNextLine("polish");
+        printMessageToUserNextLine("typeExitToQuitSettings");
+    }
 }

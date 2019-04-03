@@ -7,11 +7,11 @@ import java.util.stream.Collectors;
 /**
  * @author Patryk Kucharski
  */
-public class BoardConfig {
+public class BoardConfig {//todo niepubliczne?
 
-    int rows;
-    int columns;
-    int winningConditionLength;
+    public int rows;
+    public int columns;
+    public int winningConditionLength;
     List<Player> players;
 
     BoardConfig(int rows, int columns, int winningConditionLength) {
@@ -28,7 +28,7 @@ public class BoardConfig {
         return this;
     }
 
-    BoardConfig setDefaultBoardConfig(){
+    static BoardConfig setDefaultBoardConfig(){
         BoardConfig boardConfig = new BoardConfig(3,3,3);
         boardConfig.addPlayer(new Player("Player1",true, Marker.CIRCLE, 0));
         boardConfig.addPlayer(new Player("Player2",false, Marker.CROSS, 0));
@@ -40,8 +40,8 @@ public class BoardConfig {
         players.add(player);
     }
 
-    Player getCurrentPlayer(){
-        return players.stream()
+    Player getCurrentPlayer(Board board){
+        return board.getCurrentBoardConfig().players.stream()
                 .filter(Player::hasTurn)
                 .collect(Collectors.toList())
                 .get(0);

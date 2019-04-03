@@ -1,6 +1,5 @@
 package com.patryk.app;
 
-import com.patryk.app.game_logic.Board;
 import com.patryk.app.game_logic.GameLogicAPI;
 import com.patryk.app.input.InputAPI;
 import com.patryk.app.output.OutputAPI;
@@ -16,12 +15,13 @@ class MenuManager {
     private InputAPI inputAPI;
     private GameLogicAPI gameLogicAPI;
     private RoundManager roundManager;
+    private boolean isLanguageValid = false;
 
     MenuManager(InputStream inputStream) {
         outputAPI = new OutputAPI();
-        inputAPI = new InputAPI(inputStream);
+        inputAPI = new InputAPI(inputStream, outputAPI);
         gameLogicAPI = new GameLogicAPI();
-        roundManager = new RoundManager(outputAPI, inputAPI, 3);
+        roundManager = new RoundManager(gameLogicAPI, outputAPI, inputAPI, 3);
     }
 
     void runMenu() {
@@ -37,16 +37,17 @@ class MenuManager {
                     break;
                 }
                 case "2": {
-                    setGameConfig();
+                    setGameConfig();//todo moduł do ustawiania stołu
                     break;
                 }
                 case "3": {
+                    outputAPI.displayLanguageMenu();
                     setLanguage();
                     break;
                 }
                 default: {
                     if (userAnswer.toLowerCase().equals("exit")) {
-                        outputAPI.printMessageToUserNextLine("ThankYouForPlaying");//todo do resource bundle to
+                        outputAPI.printMessageToUserNextLine("thankYouForPlaying");//todo do resource bundle to
                         break;
                     } else {
                         outputAPI.printMessageToUserNextLine("noSuchOption");
@@ -54,19 +55,19 @@ class MenuManager {
                     }
                 }
             }
-        } while (!userAnswer.equals("exit"));//todo poprawić warunek
+        } while (!userAnswer.toLowerCase().equals("exit"));
     }
 
     private void setLanguage() {
-        //todo implement
-//        do {
-//            outputAPI.printLanguageMenu();
-//            String language = scanner.nextLine();
-//            if (language.toLowerCase().equals("pl") || language.toLowerCase().equals("eng")) {
-//                outputAPI.setLanguage(language.toLowerCase(), language);
-//                isLanguageValid = true;
-//            }
-//        } while (!isLanguageValid);
+        String language;
+        do {
+            language = inputAPI.getInputFromUser();
+            if (language.toLowerCase().equals("pl") || language.toLowerCase().equals("eng")) {
+                outputAPI.setLanguage(language.toLowerCase(), language);
+                isLanguageValid = true;
+            }
+        } while (!isLanguageValid);
+
     }
 
     private void setGameConfig() {

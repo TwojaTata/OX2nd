@@ -16,6 +16,9 @@ public class Player {
         this.marker = marker;
         this.score = score;
     }
+    public String getName(){
+        return name;
+    }
 
     Marker getMarker() {
         return marker;
@@ -29,5 +32,13 @@ public class Player {
         this.hasTurn = hasTurn;
     }
 
-
+    @Override
+    public String toString() {
+        return "Player{" +
+                "name='" + name + '\'' +
+                ", hasTurn=" + hasTurn +
+                ", marker=" + marker +
+                ", score=" + score +
+                '}';
+    }
 }

@@ -8,14 +8,16 @@ import com.patryk.app.output.OutputAPI;
 /**
  * @author Patryk Kucharski
  */
+
 class TurnManager {
 
     private OutputAPI outputAPI;
     private InputAPI inputAPI;
     private GameLogicAPI gameLogicAPI;
-    private String row, column;
-    private boolean doWeHaveAWinner;
-    private boolean doWeHaveADraw;
+    boolean doWeHaveAWinner = false;
+    boolean doWeHaveADraw = false;
+    private int intRow;
+    private int intColumn;
 
     TurnManager(InputAPI inputAPI, OutputAPI outputAPI, GameLogicAPI gameLogicAPI) {
         this.gameLogicAPI = gameLogicAPI;
@@ -24,60 +26,87 @@ class TurnManager {
     }
 
     void doATurn(Board board) {
-        //TODO implement
-
-        gameLogicAPI.getCurrentBoardState().toString();//todo to zamienic na wyświetlanie
-        outputAPI.printMessageToUserNextLine("insertRowNumber");
-        row = inputAPI.getInputFromUser();
-        outputAPI.printMessageToUserNextLine("insertColumnNumber");
-        column = inputAPI.getInputFromUser();
-        //   gameLogicAPI.setCoordinates();//todo w tej metodzie odnośnik do validacji
-        gameLogicAPI.putMarkerOntoBoard(gameLogicAPI.getCoordinates(), gameLogicAPI.getCurrentPlayer());
-
-        if (gameLogicAPI.checkIfCurrentPlayerWon(gameLogicAPI.getCoordinates())) {
-            gameLogicAPI.getCurrentBoardState().toString();
-            outputAPI.printMessageToUserInLine("player");
-        //    outputAPI.printInLine(" :" + gameLogicAPI.getCurrentPlayer().getName());
-            outputAPI.printMessageToUserInLine("won");
-            outputAPI.printMessageToUserNextLine("");
-            doWeHaveADraw = true;
-            doWeHaveAWinner = true;
+        gameLogicAPI.displayBoard();
+        if (validateMove(board)) {
+            putMarkerOntoBoard(intRow, intColumn, board);
         }
-        if (!doWeHaveAWinner) {
-            if (gameLogicAPI.checkIfThereIsADraw(board)) {
-                gameLogicAPI.getCurrentBoardState().toString();
-                outputAPI.printMessageToUserNextLine("itsADraw");
-                doWeHaveADraw = true;
-                doWeHaveAWinner = true;
-            }
+        if (thereIsAWinner()) {
+            finalizeRoundWinnerIsPresent(board);
+        }
+        if (turnHasEnded(board)) {
+            finalizeRoundWeHaveADraw();
         }
         gameLogicAPI.switchTurns(board);
     }
+
+    private void finalizeRoundWinnerIsPresent(Board board) {
+        gameLogicAPI.displayBoard();
+        printWinner(board);
+        doWeHaveADraw = true;
+        doWeHaveAWinner = true;
+    }
+
+    private boolean thereIsAWinner() {
+        return gameLogicAPI.checkIfCurrentPlayerWon(gameLogicAPI.getCoordinates());
+    }
+
+    private void finalizeRoundWeHaveADraw() {
+        gameLogicAPI.displayBoard();
+        outputAPI.printMessageToUserNextLine("itsADraw");
+        doWeHaveADraw = true;
+        doWeHaveAWinner = true;
+    }
+
+    private boolean turnHasEnded(Board board) {
+        return !doWeHaveAWinner && gameLogicAPI.checkIfThereIsADraw(board);
+    }
+
+    boolean checkIfGameEnded() {
+        return doWeHaveADraw || doWeHaveAWinner;
+    }
+
+    private String getValidRowFromUser() {
+        String row;
+        do {
+            outputAPI.printMessageToUserNextLine("insertRowNumber");
+            row = inputAPI.getInputFromUser();
+        } while (!inputAPI.validateRow(row, gameLogicAPI.getCurrentConfig().rows));
+        return row;
+    }
+
+    private String getValidColumnFromUser() {
+        String column;
+        do {
+            outputAPI.printMessageToUserNextLine("insertColumnNumber");
+            column = inputAPI.getInputFromUser();
+        } while (!inputAPI.validateRow(column, gameLogicAPI.getCurrentConfig().rows));
+        return column;
+    }
+
+    private void putMarkerOntoBoard(int validRow, int validColumn, Board board) {
+        gameLogicAPI.setCoordinates(validRow, validColumn);
+        gameLogicAPI.putMarkerOntoBoard(gameLogicAPI.getCoordinates(), gameLogicAPI.getCurrentPlayer(board));
+    }
+
+    private void printWinner(Board board) {
+        outputAPI.printMessageToUserInLine("player");
+        outputAPI.printInLine(": " + gameLogicAPI.getCurrentPlayer(board).getName());
+        outputAPI.printMessageToUserInLine("won");
+        outputAPI.print("");
+    }
+
+    private boolean validateMove(Board board) {
+        boolean isMoveValid;
+        do {
+            intRow = Integer.valueOf(getValidRowFromUser());
+            intColumn = Integer.valueOf(getValidColumnFromUser());
+            isMoveValid = gameLogicAPI.checkIfMoveIsLegal(intRow - 1, intColumn - 1, board);
+            if (!isMoveValid) {
+                outputAPI.printMessageToUserNextLine("spotIsAlreadyTaken");
+            }
+        } while (!isMoveValid);
+        return true;
+    }
 }
-//
-//
-//        Player currentPlayer = boardServiceAPI.getCurrentPLayer(board);
-//        boardServiceAPI.displayBoard(board);
-//        outputAPI.printCurrentPlayer(board);
-//        validateMove(board);
-//        boardServiceAPI.putMarker(board, row - 1, column - 1, currentPlayer);
-//        if (boardServiceAPI.checkIfCurrentPlayerWon(row - 1, column - 1, board)) {
-//            boardServiceAPI.displayBoard(board);
-//            outputAPI.printMessageToUserInLine("player");
-//            outputAPI.printMessage(currentPlayer.getName());
-//            outputAPI.printMessageToUserInLine("won");
-//            outputAPI.printMessage("");
-//            doWeHaveAWinner = true;
-//            doWeHaveADraw = true;
-//        }
-//        if (!doWeHaveAWinner) {
-//            if (boardServiceAPI.checkIfTheresADraw(board)) {
-//                boardServiceAPI.displayBoard(board);
-//                outputAPI.printMessageToUserNextLine("itsADraw");
-//                doWeHaveADraw = true;
-//                doWeHaveAWinner = true;
-//            }
-//        }
-//        boardServiceAPI.switchTurns(board);
-//    }
+
 
