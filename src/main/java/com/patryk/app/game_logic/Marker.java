@@ -3,7 +3,7 @@ package com.patryk.app.game_logic;
 /**
  * @author Patryk Kucharski
  */
-enum Marker {
+public enum Marker {
 
     CROSS("X"), CIRCLE("O"), BLANK(" ");
     public final String valueToDisplay;

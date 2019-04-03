@@ -20,6 +20,10 @@ class GameJudge {
      * @return true if given spot is empty or false if not
      */
 
+    void setBoard (Board board){
+        this.board = board;
+    }
+
     boolean validateIfMoveIsLegal(Coordinates coordinates) {
         return board.getCurrentBoard()[coordinates.row][coordinates.column].equals(Marker.BLANK);
         //todo wypisać odpowiedni komunikat

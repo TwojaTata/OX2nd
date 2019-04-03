@@ -7,11 +7,11 @@ class Printer {
 
     private LanguageManager languageManager;
 
-    Printer(){
+    Printer() {
         languageManager = new LanguageManager();
     }
 
-    void print(String message){
+    void print(String message) {
         System.out.println(message);
     }
 
@@ -24,7 +24,7 @@ class Printer {
     }
 
     void setLanguage(String languageCode, String countryCode) {
-        languageManager.setLanguageVersion(languageCode,countryCode);
+        languageManager.setLanguageVersion(languageCode, countryCode);
     }
 
     void printInLine(String message) {

@@ -1,5 +1,7 @@
 package com.patryk.app.game_logic;
 
+import java.util.List;
+
 /**
  * @author Patryk Kucharski
  */
@@ -33,12 +35,12 @@ public class GameLogicAPI {
         boardConfig.addPlayer(player);
     }
 
-    public BoardConfig setBoardConfig(int rows, int columns, int winningCondition) {
-        return boardConfig.setBoardConfig(rows, columns, winningCondition);
+    public BoardConfig createNewBoardConfig(int rows, int columns, int winningCondition, List<Player> players) {
+        return boardConfig.setBoardConfig(rows, columns, winningCondition, players);
     }
 
-    private Board fillBoardWithBlanks() {
-        return board.fillBoardWithBlanks();
+    public void fillBoardWithBlanks() {
+        board.fillBoardWithBlanks();
     }
 
     //todo wywalic z api?
@@ -46,19 +48,19 @@ public class GameLogicAPI {
         board.putMarker(coordinates, currentPlayer);
     }
 
-    private Board initializeDefaultBoard() {
-        return board.initializeDefaultBoard();
-    }
+//    private Board initializeDefaultBoard() {
+//        return board.initializeDefaultBoard();
+//    }
 
     public boolean checkIfCurrentPlayerWon(Coordinates coordinates) {
         return gameJudge.checkIfCurrentPlayerWon(coordinates);
     }
 
-    public Player getCurrentPlayer(Board board) {
-        return boardConfig.getCurrentPlayer(board);
+    public Player getCurrentPlayer() {
+        return boardConfig.getCurrentPlayer(board); // to może być this.board i będzie działać tak samo
     }
 
-    public void resetBoard(Board board) {
+    public void resetBoard() {
         board.fillBoardWithBlanks();
     }
 
@@ -66,16 +68,16 @@ public class GameLogicAPI {
         return this.coordinates;
     }
 
-    public boolean checkIfThereIsADraw(Board board) {
+    public boolean checkIfThereIsADraw() {
         return gameJudge.checkIfTheresADraw(board);
     }
 
-    public void switchTurns(Board board) {
-        boardConfig.switchTurns(board);
+    public void switchTurns() {
+        boardConfig.switchTurns();
     }
 
     public void setCoordinates(int row, int column) {
-        coordinates = new Coordinates(row - 1, column - 1); //todo poprawić, robocza wersja
+        coordinates = new Coordinates(row - 1, column - 1);
     }
 
     public void displayBoard() {
@@ -86,8 +88,13 @@ public class GameLogicAPI {
         return boardConfig;
     }
 
-    public boolean checkIfMoveIsLegal(int row, int column, Board board) {
+    public boolean checkIfMoveIsLegal(int row, int column) {
 
         return gameJudge.checkIfMoveIsLegal(row, column, board);
+    }
+
+    public void setBoard(Board board) {
+        this.board = board;
+        gameJudge.setBoard(board);
     }
 }

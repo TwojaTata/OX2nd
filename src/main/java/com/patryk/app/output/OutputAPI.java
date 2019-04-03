@@ -6,7 +6,6 @@ package com.patryk.app.output;
 public class OutputAPI {
 
     private final Printer printer;
-    private LanguageManager languageManager = new LanguageManager();
 
     public OutputAPI() {
         this.printer = new Printer();
@@ -17,7 +16,7 @@ public class OutputAPI {
     }
 
     public void setLanguage(String languageVersion, String countryCode){
-        languageManager.setLanguageVersion(languageVersion, countryCode);
+        printer.setLanguage(languageVersion, countryCode);
     }
 
     public void printMessageToUserNextLine(String key) {

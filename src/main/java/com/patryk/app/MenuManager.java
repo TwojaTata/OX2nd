@@ -1,10 +1,10 @@
 package com.patryk.app;
 
+import com.patryk.app.game_logic.Board;
 import com.patryk.app.game_logic.GameLogicAPI;
 import com.patryk.app.input.InputAPI;
 import com.patryk.app.output.OutputAPI;
 
-import java.io.InputStream;
 
 /**
  * @author Patryk Kucharski
@@ -15,17 +15,17 @@ class MenuManager {
     private InputAPI inputAPI;
     private GameLogicAPI gameLogicAPI;
     private RoundManager roundManager;
-    private boolean isLanguageValid = false;
+    private SettingsManager settingsManager;
 
-    MenuManager(InputStream inputStream) {
-        outputAPI = new OutputAPI();
-        inputAPI = new InputAPI(inputStream, outputAPI);
+    MenuManager(OutputAPI outputAPI, InputAPI inputAPI) {
+        this.outputAPI = outputAPI;
+        this.inputAPI = inputAPI;
         gameLogicAPI = new GameLogicAPI();
         roundManager = new RoundManager(gameLogicAPI, outputAPI, inputAPI, 3);
+        settingsManager = new SettingsManager(gameLogicAPI, outputAPI, inputAPI);
     }
 
     void runMenu() {
-
         String userAnswer;
         outputAPI.printMessageToUserNextLine("welcomeToTheGame");
         do {
@@ -33,46 +33,55 @@ class MenuManager {
             userAnswer = inputAPI.getInputFromUser();
             switch (userAnswer) {
                 case "1": {
-                    roundManager.doMainLoop(gameLogicAPI.getCurrentBoardState());
+                    roundManager.doMainLoop();
                     break;
                 }
                 case "2": {
-                    setGameConfig();//todo moduł do ustawiania stołu
+                    getConfigFromUser();
                     break;
                 }
                 case "3": {
                     outputAPI.displayLanguageMenu();
-                    setLanguage();
+                    getLanguageFromUser();
                     break;
                 }
+                case "exit":{outputAPI.printMessageToUserNextLine("thankYouForPlaying");}
                 default: {
-                    if (userAnswer.toLowerCase().equals("exit")) {
-                        outputAPI.printMessageToUserNextLine("thankYouForPlaying");//todo do resource bundle to
-                        break;
-                    } else {
                         outputAPI.printMessageToUserNextLine("noSuchOption");
-                        break;
                     }
                 }
-            }
-        } while (!userAnswer.toLowerCase().equals("exit"));
+        } while (!isInputGivenString(userAnswer, "exit"));
     }
 
-    private void setLanguage() {
+    private boolean isInputGivenString(String userAnswer, String string) {
+        return userAnswer.toLowerCase().equals(string);
+    }
+
+    private void getLanguageFromUser() {
+        boolean isLanguageValid = false;
         String language;
         do {
             language = inputAPI.getInputFromUser();
-            if (language.toLowerCase().equals("pl") || language.toLowerCase().equals("eng")) {
-                outputAPI.setLanguage(language.toLowerCase(), language);
+            if (isInputGivenString(language, "exit")){
+                return;
+            }
+            if (isInputGivenString(language, "pl") || isInputGivenString(language, "eng")) {
+                outputAPI.setLanguage(language.toLowerCase(), language.toUpperCase());
                 isLanguageValid = true;
             }
+            else {
+                outputAPI.printMessageToUserNextLine("noSuchOption");
+            }
         } while (!isLanguageValid);
-
     }
 
-    private void setGameConfig() {
-
-
-        //todo implement
+    private void getConfigFromUser() {
+        Board board = new Board(gameLogicAPI.createNewBoardConfig(
+                settingsManager.getDimensionFromUser("rows"),
+                settingsManager.getDimensionFromUser("columns"),
+                settingsManager.getWinningConditionFromUser(),
+                settingsManager.getPlayersInfoFromUser()));
+        gameLogicAPI.setBoard(board);
+        gameLogicAPI.fillBoardWithBlanks();
     }
 }

@@ -21,10 +21,12 @@ public class BoardConfig {//todo niepubliczne?
         players = new ArrayList<>(2);
     }
 
-    BoardConfig setBoardConfig(int rows, int columns, int winningConditionLength){
+    BoardConfig setBoardConfig(int rows, int columns, int winningConditionLength, List<Player> players){
+
         this.rows = rows;
         this.columns = columns;
         this.winningConditionLength = winningConditionLength;
+        this.players = players;
         return this;
     }
 
@@ -47,8 +49,8 @@ public class BoardConfig {//todo niepubliczne?
                 .get(0);
     }
 
-    void switchTurns(Board board){
-        for (Player player : board.getCurrentBoardConfig().players
+    void switchTurns(){
+        for (Player player : players
         ) {
             if (player.hasTurn()) {
                 player.setTurn(false);

@@ -13,7 +13,7 @@ import java.util.ResourceBundle;
 class LanguageManager {
 
     private ResourceBundle resourceBundleInstance = ResourceBundle.getBundle("OX", new Locale("eng",
-            "Eng"));
+            "ENG"));
 
     void setLanguageVersion(String languageCode, String countryCode) {
         resourceBundleInstance = ResourceBundle.getBundle("OX", new Locale(languageCode, countryCode));

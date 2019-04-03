@@ -1,7 +1,5 @@
 package com.patryk.app.game_logic;
 
-import java.util.Arrays;
-
 /**
  * @author Patryk Kucharski
  */
@@ -10,7 +8,7 @@ public class Board {//todo niepubliczne?
     private final Marker[][] board;
     private BoardConfig boardConfig;
 
-    Board(BoardConfig boardConfig){
+    public Board(BoardConfig boardConfig){
         board = new Marker[boardConfig.rows][boardConfig.columns];
         this.boardConfig = boardConfig;
     }
@@ -73,13 +71,12 @@ public class Board {//todo niepubliczne?
      * which is initial state of board
      */
 
-    Board fillBoardWithBlanks() {
+    void fillBoardWithBlanks() {
         for (int i = 0; i < boardConfig.rows; i++) {
             for (int j = 0; j < boardConfig.columns; j++) {
                 board[i][j] = Marker.BLANK;
             }
         }
-        return this;
     }
 
     /**

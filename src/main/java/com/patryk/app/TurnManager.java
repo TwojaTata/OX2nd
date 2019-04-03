@@ -11,6 +11,10 @@ import com.patryk.app.output.OutputAPI;
 
 class TurnManager {
 
+    /**
+     * TODO kurwa mać. Po kiego chuja pchasz wszędzie ten board?
+     */
+
     private OutputAPI outputAPI;
     private InputAPI inputAPI;
     private GameLogicAPI gameLogicAPI;
@@ -25,23 +29,23 @@ class TurnManager {
         this.outputAPI = outputAPI;
     }
 
-    void doATurn(Board board) {
+    void doATurn() {
         gameLogicAPI.displayBoard();
-        if (validateMove(board)) {
-            putMarkerOntoBoard(intRow, intColumn, board);
-        }
+        makeSureMoveIsValid(); // tego ifa może tu nie być, a i tak zadziała
+        putMarkerOntoBoard(intRow, intColumn);
+
         if (thereIsAWinner()) {
-            finalizeRoundWinnerIsPresent(board);
+            finalizeRoundWinnerIsPresent();
         }
-        if (turnHasEnded(board)) {
+        if (turnHasEnded()) {
             finalizeRoundWeHaveADraw();
         }
-        gameLogicAPI.switchTurns(board);
+        gameLogicAPI.switchTurns();
     }
 
-    private void finalizeRoundWinnerIsPresent(Board board) {
+    private void finalizeRoundWinnerIsPresent() {
         gameLogicAPI.displayBoard();
-        printWinner(board);
+        printWinner();
         doWeHaveADraw = true;
         doWeHaveAWinner = true;
     }
@@ -57,8 +61,8 @@ class TurnManager {
         doWeHaveAWinner = true;
     }
 
-    private boolean turnHasEnded(Board board) {
-        return !doWeHaveAWinner && gameLogicAPI.checkIfThereIsADraw(board);
+    private boolean turnHasEnded() {
+        return !doWeHaveAWinner && gameLogicAPI.checkIfThereIsADraw();
     }
 
     boolean checkIfGameEnded() {
@@ -75,7 +79,7 @@ class TurnManager {
     }
 
     private String getValidColumnFromUser() {
-        String column;
+        String column; // row a nie column
         do {
             outputAPI.printMessageToUserNextLine("insertColumnNumber");
             column = inputAPI.getInputFromUser();
@@ -83,29 +87,27 @@ class TurnManager {
         return column;
     }
 
-    private void putMarkerOntoBoard(int validRow, int validColumn, Board board) {
+    private void putMarkerOntoBoard(int validRow, int validColumn) {
         gameLogicAPI.setCoordinates(validRow, validColumn);
-        gameLogicAPI.putMarkerOntoBoard(gameLogicAPI.getCoordinates(), gameLogicAPI.getCurrentPlayer(board));
+        gameLogicAPI.putMarkerOntoBoard(gameLogicAPI.getCoordinates(), gameLogicAPI.getCurrentPlayer());
     }
 
-    private void printWinner(Board board) {
+    private void printWinner() {
         outputAPI.printMessageToUserInLine("player");
-        outputAPI.printInLine(": " + gameLogicAPI.getCurrentPlayer(board).getName());
-        outputAPI.printMessageToUserInLine("won");
-        outputAPI.print("");
+        outputAPI.printInLine(": " + gameLogicAPI.getCurrentPlayer().getName() + " ");
+        outputAPI.printMessageToUserNextLine("won");
     }
 
-    private boolean validateMove(Board board) {
+    private void makeSureMoveIsValid() {
         boolean isMoveValid;
         do {
             intRow = Integer.valueOf(getValidRowFromUser());
             intColumn = Integer.valueOf(getValidColumnFromUser());
-            isMoveValid = gameLogicAPI.checkIfMoveIsLegal(intRow - 1, intColumn - 1, board);
+            isMoveValid = gameLogicAPI.checkIfMoveIsLegal(intRow - 1, intColumn - 1);
             if (!isMoveValid) {
                 outputAPI.printMessageToUserNextLine("spotIsAlreadyTaken");
             }
         } while (!isMoveValid);
-        return true;
     }
 }
 
