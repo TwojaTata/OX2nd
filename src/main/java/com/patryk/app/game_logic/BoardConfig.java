@@ -7,11 +7,11 @@ import java.util.stream.Collectors;
 /**
  * @author Patryk Kucharski
  */
-public class BoardConfig {//todo niepubliczne?
+class BoardConfig {
 
-    public int rows;
-    public int columns;
-    public int winningConditionLength;
+    int rows;
+    int columns;
+    int winningConditionLength;
     List<Player> players;
 
     BoardConfig(int rows, int columns, int winningConditionLength) {
@@ -38,7 +38,6 @@ public class BoardConfig {//todo niepubliczne?
     }
 
     void addPlayer(Player player) {
-        //todo validate null
         players.add(player);
     }
 
@@ -60,35 +59,23 @@ public class BoardConfig {//todo niepubliczne?
         }
     }
 
-    @Override
-    public String toString() {
-        return "BoardConfig{" +
-                "rows=" + rows +
-                ", columns=" + columns +
-                ", winningConditionLength=" + winningConditionLength +
-                ", players=" + players +
-                '}';
-
-        //todo zaimplementowac
-    }
-
-    Player changeStartingPlayer(Player startingPlayer) { //todo nie działa tak jak powinno
-
-        for (Player player: players) {
-            if (!startingPlayer.equals(player)){
-                if (!player.hasTurn()){
-                    player.setTurn(true);
-                }
-            }else {
-                player.setTurn(false);
-            }
-        }
-        for (Player player: players
-             ) {
-            if (startingPlayer.equals(player)){
-                return player;
-            }
-        }
-        return null;
-    }
+//    Player changeStartingPlayer(Player startingPlayer) { //todo nie działa tak jak powinno
+//
+//        for (Player player: players) {
+//            if (!startingPlayer.equals(player)){
+//                if (!player.hasTurn()){
+//                    player.setTurn(true);
+//                }
+//            }else {
+//                player.setTurn(false);
+//            }
+//        }
+//        for (Player player: players
+//             ) {
+//            if (startingPlayer.equals(player)){
+//                return player;
+//            }
+//        }
+//        return null;
+//    }
 }

@@ -74,7 +74,7 @@ class TurnManager {
         do {
             outputAPI.printMessageToUserNextLine("insertRowNumber");
             row = inputAPI.getInputFromUser();
-        } while (!inputAPI.validateRow(row, gameLogicAPI.getCurrentConfig().rows));
+        } while (!inputAPI.validateRow(row, gameLogicAPI.getRows()));
         return row;
     }
 
@@ -83,7 +83,7 @@ class TurnManager {
         do {
             outputAPI.printMessageToUserNextLine("insertColumnNumber");
             column = inputAPI.getInputFromUser();
-        } while (!inputAPI.validateColumn(column, gameLogicAPI.getCurrentConfig().rows));
+        } while (!inputAPI.validateColumn(column, gameLogicAPI.getColumns()));
         return column;
     }
 

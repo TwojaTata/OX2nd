@@ -25,13 +25,13 @@ class InputValidator {
             return false;
         }
         if (dimensionInt < 3) {
-             outputAPI.printMessageToUserNextLine("dimensionTooSmall");
-             outputAPI.printMessageToUserNextLine("insertProperNumber");
+            outputAPI.printMessageToUserNextLine("dimensionTooSmall");
+            outputAPI.printMessageToUserNextLine("insertProperNumber");
             return false;
         }
         if (dimensionInt > 99) {
-             outputAPI.printMessageToUserNextLine("dimensionTooBig");
-             outputAPI.printMessageToUserNextLine("insertProperNumber");
+            outputAPI.printMessageToUserNextLine("dimensionTooBig");
+            outputAPI.printMessageToUserNextLine("insertProperNumber");
             return false;
         }
         return true;
@@ -42,8 +42,8 @@ class InputValidator {
             return false;
         }
         if (name.length() > 30) {
-             outputAPI.printMessageToUserNextLine("nameTooLong");
-             outputAPI.printMessageToUserNextLine("insertProperName");
+            outputAPI.printMessageToUserNextLine("nameTooLong");
+            outputAPI.printMessageToUserNextLine("insertProperName");
 
             return false;
         }
@@ -59,16 +59,16 @@ class InputValidator {
         try {
             winingConditionInt = Integer.valueOf(winingCondition);
         } catch (NumberFormatException e) {
-              outputAPI.printMessageToUserNextLine("notAProperNumber");
-              outputAPI.printMessageToUserNextLine("insertProperNumber");
+            outputAPI.printMessageToUserNextLine("notAProperNumber");
+            outputAPI.printMessageToUserNextLine("insertProperNumber");
             return false;
         }
         if (winingConditionInt < 3) {
-              outputAPI.printMessageToUserNextLine("winingConditionTooSmall");
+            outputAPI.printMessageToUserNextLine("winingConditionTooSmall");
             return false;
         }
         if (winingConditionInt > biggerBoardDimension) {
-             outputAPI.printMessageToUserNextLine("conditionImpossibleToFulfill");
+            outputAPI.printMessageToUserNextLine("conditionImpossibleToFulfill");
             return false;
         }
         return true;
@@ -82,8 +82,8 @@ class InputValidator {
         if (markerPlayerOne.toLowerCase().equals("x") || markerPlayerOne.toLowerCase().equals("o")) {
             return true;
         }
-         outputAPI.printMessageToUserNextLine("notSureWhatYouMean");
-         outputAPI.printMessageToUserNextLine("insertMarkerAgain");
+        outputAPI.printMessageToUserNextLine("notSureWhatYouMean");
+        outputAPI.printMessageToUserNextLine("insertMarkerAgain");
         return false;
     }
 
@@ -97,7 +97,7 @@ class InputValidator {
             outputAPI.printMessageToUserNextLine("insertProperNumber");
             return false;
         }
-        if (rowInt<1) {
+        if (rowInt < 1) {
             outputAPI.printMessageToUserNextLine("noSuchField");
             return false;
         }
@@ -118,7 +118,7 @@ class InputValidator {
             outputAPI.printMessageToUserNextLine("insertProperNumber");
             return false;
         }
-        if (columnsInt<1) {
+        if (columnsInt < 1) {
             outputAPI.printMessageToUserNextLine("noSuchField");
             return false;
         }

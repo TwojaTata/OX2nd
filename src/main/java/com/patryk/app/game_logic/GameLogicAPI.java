@@ -12,7 +12,7 @@ public class GameLogicAPI {
     private Board board;
     private Coordinates coordinates;
 
-    public GameLogicAPI() {//todo logika w konstruktorze!!!
+    public GameLogicAPI() {
         boardConfig = new BoardConfig(3, 3, 3);
         boardConfig.addPlayer(new Player("Player1", true, Marker.CIRCLE, 0));
         boardConfig.addPlayer(new Player("Player1", false, Marker.CROSS, 0));
@@ -20,12 +20,6 @@ public class GameLogicAPI {
         board.fillBoardWithBlanks();
         this.gameJudge = new GameJudge(board);
     }
-
-//    public static GameLogicAPI createDefaultBoard (){
-//        GameLogicAPI gameLogicAPI = new GameLogicAPI();
-//        gameLogicAPI.board = initializeDefaultBoard();
-//        return gameLogicAPI;
-//    }
 
     public Board getCurrentBoardState() {
         return board;
@@ -43,21 +37,16 @@ public class GameLogicAPI {
         board.fillBoardWithBlanks();
     }
 
-    //todo wywalic z api?
     public void putMarkerOntoBoard(Coordinates coordinates, Player currentPlayer) {
         board.putMarker(coordinates, currentPlayer);
     }
-
-//    private Board initializeDefaultBoard() {
-//        return board.initializeDefaultBoard();
-//    }
 
     public boolean checkIfCurrentPlayerWon(Coordinates coordinates) {
         return gameJudge.checkIfCurrentPlayerWon(coordinates);
     }
 
     public Player getCurrentPlayer() {
-        return boardConfig.getCurrentPlayer(board); // to może być this.board i będzie działać tak samo
+        return boardConfig.getCurrentPlayer(board);
     }
 
     public void resetBoard() {
@@ -84,10 +73,6 @@ public class GameLogicAPI {
         this.board.displayBoard();
     }
 
-    public BoardConfig getCurrentConfig() {
-        return boardConfig;
-    }
-
     public boolean checkIfMoveIsLegal(int row, int column) {
 
         return gameJudge.checkIfMoveIsLegal(row, column, board);
@@ -98,7 +83,11 @@ public class GameLogicAPI {
         gameJudge.setBoard(board);
     }
 
-    public Player changeStartingPlayer(Player startingPlayer) {
-        return boardConfig.changeStartingPlayer(startingPlayer);
+    public int getRows(){
+        return boardConfig.rows;
+    }
+
+    public int getColumns() {
+        return boardConfig.columns;
     }
 }

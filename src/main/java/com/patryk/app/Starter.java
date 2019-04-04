@@ -9,6 +9,6 @@ class Starter {
     public static void main(String[] args) {
 
         InputStream inputStream = System.in;
-        new Game(inputStream).run();
+        new Game(inputStream, 1).run();
     }
 }

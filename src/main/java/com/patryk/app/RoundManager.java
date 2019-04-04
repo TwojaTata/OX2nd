@@ -15,7 +15,6 @@ class RoundManager {
     private final OutputAPI outputAPI;
     private final GameLogicAPI gameLogicAPI;
     private int numberOfRounds;
-    private Player startingPlayer;
     private boolean weHaveAWinner = false;
     private boolean weHaveADraw = false; // WTF?
 
@@ -24,7 +23,6 @@ class RoundManager {
         this.numberOfRounds = numberOfRounds;
         this.gameLogicAPI = gameLogicAPI;
         turnManager = new TurnManager(inputAPI, outputAPI, gameLogicAPI);
-        startingPlayer = gameLogicAPI.getCurrentPlayer();
     }
 
     void doMainLoop() {
@@ -33,20 +31,15 @@ class RoundManager {
             gameLogicAPI.resetBoard();
             resetGameOutcome();
             doARound(i);
-            changeStartingPlayer();
+            //changeStartingPlayer();
             if (weHaveAWinner || weHaveADraw) {
                 break;
             }
         }
     }
 
-    private void changeStartingPlayer() {
-        startingPlayer = gameLogicAPI.changeStartingPlayer(startingPlayer);
-    }
-
     private void doARound(int roundNumber) {
-        boolean gameEnded;
-        gameEnded = false;
+        boolean gameEnded = false;
         outputAPI.printMessageToUserInLine("RoundNumber");
         outputAPI.print(String.valueOf(roundNumber + 1));
         while (!gameEnded) {

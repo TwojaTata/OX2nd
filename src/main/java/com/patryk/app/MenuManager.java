@@ -17,11 +17,11 @@ class MenuManager {
     private RoundManager roundManager;
     private SettingsManager settingsManager;
 
-    MenuManager(OutputAPI outputAPI, InputAPI inputAPI) {
+    MenuManager(OutputAPI outputAPI, InputAPI inputAPI, int numberOfRounds) {
         this.outputAPI = outputAPI;
         this.inputAPI = inputAPI;
         gameLogicAPI = new GameLogicAPI();
-        roundManager = new RoundManager(gameLogicAPI, outputAPI, inputAPI, 3);
+        roundManager = new RoundManager(gameLogicAPI, outputAPI, inputAPI, numberOfRounds);
         settingsManager = new SettingsManager(gameLogicAPI, outputAPI, inputAPI);
     }
 
@@ -45,11 +45,14 @@ class MenuManager {
                     getLanguageFromUser();
                     break;
                 }
-                case "exit":{outputAPI.printMessageToUserNextLine("thankYouForPlaying");}
-                default: {
-                        outputAPI.printMessageToUserNextLine("noSuchOption");
-                    }
+                case "exit": {
+                    outputAPI.printMessageToUserNextLine("thankYouForPlaying");
+                    break;
                 }
+                default: {
+                    outputAPI.printMessageToUserNextLine("noSuchOption");
+                }
+            }
         } while (!isInputGivenString(userAnswer, "exit"));
     }
 
@@ -62,14 +65,13 @@ class MenuManager {
         String language;
         do {
             language = inputAPI.getInputFromUser();
-            if (isInputGivenString(language, "exit")){
+            if (isInputGivenString(language, "exit")) {
                 return;
             }
             if (isInputGivenString(language, "pl") || isInputGivenString(language, "eng")) {
                 outputAPI.setLanguage(language.toLowerCase(), language.toUpperCase());
                 isLanguageValid = true;
-            }
-            else {
+            } else {
                 outputAPI.printMessageToUserNextLine("noSuchOption");
             }
         } while (!isLanguageValid);
