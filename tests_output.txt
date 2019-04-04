@@ -1,0 +1,662 @@
+Welcome to TicTacToe!
+Choose number of option
+1. Play
+2. Configure game settings
+3. Set language version
+Type "exit" to close the game
+insert number of rows
+insert number of columns
+insert number of wining marks in a row
+Insert name of player to begin
+insert marker of 
+Patryk (O,X)
+Insert name of second player
+Choose number of option
+1. Play
+2. Configure game settings
+3. Set language version
+Type "exit" to close the game
+Round number: 1
+   |1  |2  |3  |
+----------------
+1  |   |   |   |
+----------------
+2  |   |   |   |
+----------------
+3  |   |   |   |
+----------------
+
+insert number of row
+insert number of column
+   |1  |2  |3  |
+----------------
+1  | O |   |   |
+----------------
+2  |   |   |   |
+----------------
+3  |   |   |   |
+----------------
+
+insert number of row
+insert number of column
+   |1  |2  |3  |
+----------------
+1  | O |   |   |
+----------------
+2  | X |   |   |
+----------------
+3  |   |   |   |
+----------------
+
+insert number of row
+insert number of column
+   |1  |2  |3  |
+----------------
+1  | O |   |   |
+----------------
+2  | X |   |   |
+----------------
+3  | O |   |   |
+----------------
+
+insert number of row
+insert number of column
+   |1  |2  |3  |
+----------------
+1  | O |   | X |
+----------------
+2  | X |   |   |
+----------------
+3  | O |   |   |
+----------------
+
+insert number of row
+insert number of column
+   |1  |2  |3  |
+----------------
+1  | O |   | X |
+----------------
+2  | X |   | O |
+----------------
+3  | O |   |   |
+----------------
+
+insert number of row
+insert number of column
+   |1  |2  |3  |
+----------------
+1  | O |   | X |
+----------------
+2  | X |   | O |
+----------------
+3  | O |   | X |
+----------------
+
+insert number of row
+insert number of column
+   |1  |2  |3  |
+----------------
+1  | O | O | X |
+----------------
+2  | X |   | O |
+----------------
+3  | O |   | X |
+----------------
+
+insert number of row
+insert number of column
+   |1  |2  |3  |
+----------------
+1  | O | O | X |
+----------------
+2  | X | X | O |
+----------------
+3  | O |   | X |
+----------------
+
+insert number of row
+insert number of column
+   |1  |2  |3  |
+----------------
+1  | O | O | X |
+----------------
+2  | X | X | O |
+----------------
+3  | O | O | X |
+----------------
+
+Game ended in a draw GG!
+Round number: 2
+   |1  |2  |3  |
+----------------
+1  |   |   |   |
+----------------
+2  |   |   |   |
+----------------
+3  |   |   |   |
+----------------
+
+insert number of row
+insert number of column
+   |1  |2  |3  |
+----------------
+1  | X |   |   |
+----------------
+2  |   |   |   |
+----------------
+3  |   |   |   |
+----------------
+
+insert number of row
+insert number of column
+   |1  |2  |3  |
+----------------
+1  | X | O |   |
+----------------
+2  |   |   |   |
+----------------
+3  |   |   |   |
+----------------
+
+insert number of row
+insert number of column
+   |1  |2  |3  |
+----------------
+1  | X | O |   |
+----------------
+2  | X |   |   |
+----------------
+3  |   |   |   |
+----------------
+
+insert number of row
+insert number of column
+   |1  |2  |3  |
+----------------
+1  | X | O |   |
+----------------
+2  | X | O |   |
+----------------
+3  |   |   |   |
+----------------
+
+insert number of row
+insert number of column
+   |1  |2  |3  |
+----------------
+1  | X | O |   |
+----------------
+2  | X | O |   |
+----------------
+3  | X |   |   |
+----------------
+
+Player: Tomek won! GG!
+Round number: 3
+   |1  |2  |3  |
+----------------
+1  |   |   |   |
+----------------
+2  |   |   |   |
+----------------
+3  |   |   |   |
+----------------
+
+insert number of row
+insert number of column
+   |1  |2  |3  |
+----------------
+1  |   | O |   |
+----------------
+2  |   |   |   |
+----------------
+3  |   |   |   |
+----------------
+
+insert number of row
+insert number of column
+   |1  |2  |3  |
+----------------
+1  |   | O | X |
+----------------
+2  |   |   |   |
+----------------
+3  |   |   |   |
+----------------
+
+insert number of row
+insert number of column
+   |1  |2  |3  |
+----------------
+1  |   | O | X |
+----------------
+2  |   | O |   |
+----------------
+3  |   |   |   |
+----------------
+
+insert number of row
+insert number of column
+   |1  |2  |3  |
+----------------
+1  |   | O | X |
+----------------
+2  |   | O | X |
+----------------
+3  |   |   |   |
+----------------
+
+insert number of row
+insert number of column
+   |1  |2  |3  |
+----------------
+1  |   | O | X |
+----------------
+2  |   | O | X |
+----------------
+3  |   | O |   |
+----------------
+
+Player: Patryk won! GG!
+Round number: 4
+   |1  |2  |3  |
+----------------
+1  |   |   |   |
+----------------
+2  |   |   |   |
+----------------
+3  |   |   |   |
+----------------
+
+insert number of row
+insert number of column
+   |1  |2  |3  |
+----------------
+1  |   |   | X |
+----------------
+2  |   |   |   |
+----------------
+3  |   |   |   |
+----------------
+
+insert number of row
+insert number of column
+   |1  |2  |3  |
+----------------
+1  | O |   | X |
+----------------
+2  |   |   |   |
+----------------
+3  |   |   |   |
+----------------
+
+insert number of row
+insert number of column
+   |1  |2  |3  |
+----------------
+1  | O |   | X |
+----------------
+2  |   |   | X |
+----------------
+3  |   |   |   |
+----------------
+
+insert number of row
+insert number of column
+   |1  |2  |3  |
+----------------
+1  | O |   | X |
+----------------
+2  | O |   | X |
+----------------
+3  |   |   |   |
+----------------
+
+insert number of row
+insert number of column
+   |1  |2  |3  |
+----------------
+1  | O |   | X |
+----------------
+2  | O |   | X |
+----------------
+3  |   |   | X |
+----------------
+
+Player: Tomek won! GG!
+Round number: 5
+   |1  |2  |3  |
+----------------
+1  |   |   |   |
+----------------
+2  |   |   |   |
+----------------
+3  |   |   |   |
+----------------
+
+insert number of row
+insert number of column
+   |1  |2  |3  |
+----------------
+1  | O |   |   |
+----------------
+2  |   |   |   |
+----------------
+3  |   |   |   |
+----------------
+
+insert number of row
+insert number of column
+   |1  |2  |3  |
+----------------
+1  | O |   |   |
+----------------
+2  | X |   |   |
+----------------
+3  |   |   |   |
+----------------
+
+insert number of row
+insert number of column
+   |1  |2  |3  |
+----------------
+1  | O | O |   |
+----------------
+2  | X |   |   |
+----------------
+3  |   |   |   |
+----------------
+
+insert number of row
+insert number of column
+   |1  |2  |3  |
+----------------
+1  | O | O |   |
+----------------
+2  | X | X |   |
+----------------
+3  |   |   |   |
+----------------
+
+insert number of row
+insert number of column
+   |1  |2  |3  |
+----------------
+1  | O | O | O |
+----------------
+2  | X | X |   |
+----------------
+3  |   |   |   |
+----------------
+
+Player: Patryk won! GG!
+Round number: 6
+   |1  |2  |3  |
+----------------
+1  |   |   |   |
+----------------
+2  |   |   |   |
+----------------
+3  |   |   |   |
+----------------
+
+insert number of row
+insert number of column
+   |1  |2  |3  |
+----------------
+1  |   |   |   |
+----------------
+2  | X |   |   |
+----------------
+3  |   |   |   |
+----------------
+
+insert number of row
+insert number of column
+   |1  |2  |3  |
+----------------
+1  |   |   |   |
+----------------
+2  | X |   |   |
+----------------
+3  | O |   |   |
+----------------
+
+insert number of row
+insert number of column
+   |1  |2  |3  |
+----------------
+1  |   |   |   |
+----------------
+2  | X | X |   |
+----------------
+3  | O |   |   |
+----------------
+
+insert number of row
+insert number of column
+   |1  |2  |3  |
+----------------
+1  |   |   |   |
+----------------
+2  | X | X |   |
+----------------
+3  | O | O |   |
+----------------
+
+insert number of row
+insert number of column
+   |1  |2  |3  |
+----------------
+1  |   |   |   |
+----------------
+2  | X | X | X |
+----------------
+3  | O | O |   |
+----------------
+
+Player: Tomek won! GG!
+Round number: 7
+   |1  |2  |3  |
+----------------
+1  |   |   |   |
+----------------
+2  |   |   |   |
+----------------
+3  |   |   |   |
+----------------
+
+insert number of row
+insert number of column
+   |1  |2  |3  |
+----------------
+1  |   |   |   |
+----------------
+2  |   |   |   |
+----------------
+3  | O |   |   |
+----------------
+
+insert number of row
+insert number of column
+   |1  |2  |3  |
+----------------
+1  | X |   |   |
+----------------
+2  |   |   |   |
+----------------
+3  | O |   |   |
+----------------
+
+insert number of row
+insert number of column
+   |1  |2  |3  |
+----------------
+1  | X |   |   |
+----------------
+2  |   |   |   |
+----------------
+3  | O | O |   |
+----------------
+
+insert number of row
+insert number of column
+   |1  |2  |3  |
+----------------
+1  | X | X |   |
+----------------
+2  |   |   |   |
+----------------
+3  | O | O |   |
+----------------
+
+insert number of row
+insert number of column
+   |1  |2  |3  |
+----------------
+1  | X | X |   |
+----------------
+2  |   |   |   |
+----------------
+3  | O | O | O |
+----------------
+
+Player: Patryk won! GG!
+Round number: 8
+   |1  |2  |3  |
+----------------
+1  |   |   |   |
+----------------
+2  |   |   |   |
+----------------
+3  |   |   |   |
+----------------
+
+insert number of row
+insert number of column
+   |1  |2  |3  |
+----------------
+1  |   |   | X |
+----------------
+2  |   |   |   |
+----------------
+3  |   |   |   |
+----------------
+
+insert number of row
+insert number of column
+   |1  |2  |3  |
+----------------
+1  |   | O | X |
+----------------
+2  |   |   |   |
+----------------
+3  |   |   |   |
+----------------
+
+insert number of row
+insert number of column
+   |1  |2  |3  |
+----------------
+1  |   | O | X |
+----------------
+2  |   | X |   |
+----------------
+3  |   |   |   |
+----------------
+
+insert number of row
+insert number of column
+   |1  |2  |3  |
+----------------
+1  |   | O | X |
+----------------
+2  | O | X |   |
+----------------
+3  |   |   |   |
+----------------
+
+insert number of row
+insert number of column
+   |1  |2  |3  |
+----------------
+1  |   | O | X |
+----------------
+2  | O | X |   |
+----------------
+3  | X |   |   |
+----------------
+
+Player: Tomek won! GG!
+Round number: 9
+   |1  |2  |3  |
+----------------
+1  |   |   |   |
+----------------
+2  |   |   |   |
+----------------
+3  |   |   |   |
+----------------
+
+insert number of row
+insert number of column
+   |1  |2  |3  |
+----------------
+1  | O |   |   |
+----------------
+2  |   |   |   |
+----------------
+3  |   |   |   |
+----------------
+
+insert number of row
+insert number of column
+   |1  |2  |3  |
+----------------
+1  | O | X |   |
+----------------
+2  |   |   |   |
+----------------
+3  |   |   |   |
+----------------
+
+insert number of row
+insert number of column
+   |1  |2  |3  |
+----------------
+1  | O | X |   |
+----------------
+2  |   | O |   |
+----------------
+3  |   |   |   |
+----------------
+
+insert number of row
+insert number of column
+   |1  |2  |3  |
+----------------
+1  | O | X |   |
+----------------
+2  |   | O | X |
+----------------
+3  |   |   |   |
+----------------
+
+insert number of row
+insert number of column
+   |1  |2  |3  |
+----------------
+1  | O | X |   |
+----------------
+2  |   | O | X |
+----------------
+3  |   |   | O |
+----------------
+
+Player: Patryk won! GG!
+Choose number of option
+1. Play
+2. Configure game settings
+3. Set language version
+Type "exit" to close the game
+Thanks for playing! See you soon!

@@ -3,6 +3,8 @@ package com.patryk.app.game_logic;
 import java.util.List;
 
 /**
+ * API class provides methods to turn, round managers
+ *
  * @author Patryk Kucharski
  */
 public class GameLogicAPI {
@@ -21,12 +23,8 @@ public class GameLogicAPI {
         this.gameJudge = new GameJudge(board);
     }
 
-    public Board getCurrentBoardState() {
+    Board getCurrentBoardState() {
         return board;
-    }
-
-    void addPlayerToTheGame(Player player) {
-        boardConfig.addPlayer(player);
     }
 
     public BoardConfig createNewBoardConfig(int rows, int columns, int winningCondition, List<Player> players) {
@@ -58,7 +56,7 @@ public class GameLogicAPI {
     }
 
     public boolean checkIfThereIsADraw() {
-        return gameJudge.checkIfTheresADraw(board);
+        return gameJudge.checkIfTheresADraw();
     }
 
     public void switchTurns() {
@@ -74,8 +72,7 @@ public class GameLogicAPI {
     }
 
     public boolean checkIfMoveIsLegal(int row, int column) {
-
-        return gameJudge.checkIfMoveIsLegal(row, column, board);
+        return gameJudge.checkIfMoveIsLegal(row, column);
     }
 
     public void setBoard(Board board) {

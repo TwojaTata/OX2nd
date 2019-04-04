@@ -4,7 +4,7 @@ import java.util.Locale;
 import java.util.ResourceBundle;
 
 /**<p>
- * Service to provide different language versions of application
+ * class to provide different language versions of application
  * which uses .properties files to load given string from resources
  * default language is set to English
  *

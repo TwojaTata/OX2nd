@@ -1,6 +1,8 @@
 package com.patryk.app.game_logic;
 
 /**
+ *
+ * represents markers to be put on board
  * @author Patryk Kucharski
  */
 public enum Marker {

@@ -10,20 +10,20 @@ import java.util.ArrayList;
 import java.util.List;
 
 /**
+ *logic for settings changing
+ *
  * @author Patryk Kucharski
  */
 class SettingsManager {
 
-    private GameLogicAPI gameLogicAPI;
     private InputAPI inputAPI;
     private OutputAPI outputAPI;
     private int rows;
     private int columns;
 
-    SettingsManager(GameLogicAPI gameLogicAPI, OutputAPI outputAPI, InputAPI inputAPI) {
-        this.gameLogicAPI = gameLogicAPI;
+    SettingsManager(OutputAPI outputAPI, InputAPI inputAPI) {
         this.inputAPI = inputAPI;
-        this.outputAPI = outputAPI; //todo strzelic sobie w lep
+        this.outputAPI = outputAPI;
     }
 
     int getDimensionFromUser(String dimensionKey) {

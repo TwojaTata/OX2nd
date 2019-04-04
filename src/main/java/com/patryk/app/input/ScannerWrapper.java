@@ -10,12 +10,11 @@ class ScannerWrapper {
 
     private Scanner scanner;
 
-    ScannerWrapper(InputStream inputStream){
+    ScannerWrapper(InputStream inputStream) {
         scanner = new Scanner(inputStream);
     }
 
     String returnNextLine() {
-
         return scanner.nextLine();
     }
 }

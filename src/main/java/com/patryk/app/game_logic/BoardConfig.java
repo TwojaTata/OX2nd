@@ -5,6 +5,10 @@ import java.util.List;
 import java.util.stream.Collectors;
 
 /**
+ * Stores all configuration for current board,
+ * once given config, board has all information to
+ * be created
+ *
  * @author Patryk Kucharski
  */
 class BoardConfig {
@@ -21,6 +25,14 @@ class BoardConfig {
         players = new ArrayList<>(2);
     }
 
+    /**
+     *
+     * @param rows                   rows of board
+     * @param columns                columns of board
+     * @param winningConditionLength winning condition to fulfill
+     * @param players                List of players who are playing game
+     * @return                       returns same object instance with changed config
+     */
     BoardConfig setBoardConfig(int rows, int columns, int winningConditionLength, List<Player> players){
 
         this.rows = rows;
@@ -30,16 +42,13 @@ class BoardConfig {
         return this;
     }
 
-    static BoardConfig setDefaultBoardConfig(){
-        BoardConfig boardConfig = new BoardConfig(3,3,3);
-        boardConfig.addPlayer(new Player("Player1",true, Marker.CIRCLE, 0));
-        boardConfig.addPlayer(new Player("Player2",false, Marker.CROSS, 0));
-        return boardConfig;
-    }
-
     void addPlayer(Player player) {
         players.add(player);
     }
+
+    /**
+     * returns player that has hasTurn variable set to true
+     */
 
     Player getCurrentPlayer(Board board){
         return board.getCurrentBoardConfig().players.stream()
@@ -48,6 +57,9 @@ class BoardConfig {
                 .get(0);
     }
 
+    /**
+     * switches turns after player did his move
+     */
     void switchTurns(){
         for (Player player : players
         ) {
@@ -58,24 +70,4 @@ class BoardConfig {
             }
         }
     }
-
-//    Player changeStartingPlayer(Player startingPlayer) { //todo nie działa tak jak powinno
-//
-//        for (Player player: players) {
-//            if (!startingPlayer.equals(player)){
-//                if (!player.hasTurn()){
-//                    player.setTurn(true);
-//                }
-//            }else {
-//                player.setTurn(false);
-//            }
-//        }
-//        for (Player player: players
-//             ) {
-//            if (startingPlayer.equals(player)){
-//                return player;
-//            }
-//        }
-//        return null;
-//    }
 }

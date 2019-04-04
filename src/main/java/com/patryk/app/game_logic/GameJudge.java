@@ -3,6 +3,9 @@ package com.patryk.app.game_logic;
 import java.util.stream.Collectors;
 
 /**
+ * main game logic class
+ * decides if player won or draw after last move
+ *
  * @author Patryk Kucharski
  */
 class GameJudge {
@@ -13,21 +16,8 @@ class GameJudge {
         this.board = board;
     }
 
-    /**
-     *
-     * //todo dokumentacja
-     * current state of board
-     * @return true if given spot is empty or false if not
-     */
-
-    void setBoard (Board board){
+    void setBoard(Board board) {
         this.board = board;
-    }
-
-    boolean validateIfMoveIsLegal(Coordinates coordinates) {
-        return board.getCurrentBoard()[coordinates.row][coordinates.column].equals(Marker.BLANK);
-        //todo wypisać odpowiedni komunikat
-        // System.out.println("spot already taken! Specify different coordinates");
     }
 
     private boolean checkIfWonHorizontally(Coordinates coordinates) {
@@ -126,6 +116,11 @@ class GameJudge {
         return false;
     }
 
+
+    /**
+     * @param coordinates last move
+     * @return true if last move was winning
+     */
     boolean checkIfCurrentPlayerWon(Coordinates coordinates) {
         return checkIfWonDiagonallyDownToUp(coordinates)
                 || checkIfWonDiagonallyUpToDown(coordinates)
@@ -133,7 +128,10 @@ class GameJudge {
                 || checkIfWonVertically(coordinates);
     }
 
-    boolean checkIfTheresADraw(Board board) {
+    /**
+     * @return true is game ended in draw
+     */
+    boolean checkIfTheresADraw() {
         int counter = 0;
 
         for (int i = 0; i < board.getCurrentBoardConfig().rows; i++) {
@@ -146,6 +144,9 @@ class GameJudge {
         return counter <= 0;
     }
 
+    /**
+     * @return marker of player that has turn
+     */
     private Marker getCurrentMarker() {
         return board.getCurrentBoardConfig().players.stream()
                 .filter(Player::hasTurn)
@@ -154,7 +155,12 @@ class GameJudge {
                 .get(0);
     }
 
-    boolean checkIfMoveIsLegal(int row, int column, Board board) {
+    /**
+     * @param row    coordinate
+     * @param column coordinate
+     * @return false if given field is already taken
+     */
+    boolean checkIfMoveIsLegal(int row, int column) {
         return board.getCurrentBoard()[row][column].equals(Marker.BLANK);
     }
 }

@@ -15,12 +15,6 @@ import static org.testng.Assert.*;
 @Test
 public class GameLogicAPITest {
 
-
-    @Test
-    public void testCreateNewBoardConfig() {
-
-    }
-
     @DataProvider(name = "fillBoardWithBlanksDP")
     public static Object[][] fillBoardWithBlanksDP() {
 
@@ -74,49 +68,5 @@ public class GameLogicAPITest {
         board.putMarker(new Coordinates(1, 1), player);
         board.putMarker(new Coordinates(2, 2), player);
         assert gameJudge.checkIfCurrentPlayerWon(new Coordinates(2,2));
-    }
-
-    @Test
-    public void testGetCurrentPlayer() {
-    }
-
-    @Test
-    public void testResetBoard() {
-    }
-
-    @Test
-    public void testGetCoordinates() {
-    }
-
-    @Test
-    public void testCheckIfThereIsADraw() {
-    }
-
-    @Test
-    public void testSwitchTurns() {
-    }
-
-    @Test
-    public void testSetCoordinates() {
-    }
-
-    @Test
-    public void testDisplayBoard() {
-    }
-
-    @Test
-    public void testGetCurrentConfig() {
-    }
-
-    @Test
-    public void testCheckIfMoveIsLegal() {
-    }
-
-    @Test
-    public void testSetBoard() {
-    }
-
-    @Test
-    public void testChangeStartingPlayer() {
     }
 }

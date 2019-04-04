@@ -5,14 +5,13 @@ import com.patryk.app.input.InputAPI;
 import com.patryk.app.output.OutputAPI;
 
 /**
+ * logic and sequence for each turn
+ * repeats until winner is found or game ended in draw
+ *
  * @author Patryk Kucharski
  */
 
 class TurnManager {
-
-    /**
-     *
-     */
 
     private OutputAPI outputAPI;
     private InputAPI inputAPI;
@@ -40,7 +39,6 @@ class TurnManager {
             finalizeRoundWeHaveADraw();
         }
         gameLogicAPI.switchTurns();
-        //todo poddawanie się
     }
 
     private void finalizeRoundWinnerIsPresent() {
@@ -79,7 +77,7 @@ class TurnManager {
     }
 
     private String getValidColumnFromUser() {
-        String column; // row a nie column
+        String column;
         do {
             outputAPI.printMessageToUserNextLine("insertColumnNumber");
             column = inputAPI.getInputFromUser();

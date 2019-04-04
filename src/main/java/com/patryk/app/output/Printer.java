@@ -1,6 +1,8 @@
 package com.patryk.app.output;
 
 /**
+ * contains print methods using languageManager class
+ *
  * @author Patryk Kucharski
  */
 class Printer {

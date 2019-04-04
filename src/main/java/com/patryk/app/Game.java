@@ -6,6 +6,8 @@ import com.patryk.app.output.OutputAPI;
 import java.io.InputStream;
 
 /**
+ * Injects needed objects to others
+ *
  * @author Patryk Kucharski
  */
 class Game {

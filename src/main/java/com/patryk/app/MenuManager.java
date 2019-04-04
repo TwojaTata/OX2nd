@@ -5,8 +5,9 @@ import com.patryk.app.game_logic.GameLogicAPI;
 import com.patryk.app.input.InputAPI;
 import com.patryk.app.output.OutputAPI;
 
-
 /**
+ * Main menu and helping methods
+ *
  * @author Patryk Kucharski
  */
 class MenuManager {
@@ -22,7 +23,7 @@ class MenuManager {
         this.inputAPI = inputAPI;
         gameLogicAPI = new GameLogicAPI();
         roundManager = new RoundManager(gameLogicAPI, outputAPI, inputAPI, numberOfRounds);
-        settingsManager = new SettingsManager(gameLogicAPI, outputAPI, inputAPI);
+        settingsManager = new SettingsManager(outputAPI, inputAPI);
     }
 
     void runMenu() {

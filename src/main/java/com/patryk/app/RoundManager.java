@@ -1,11 +1,12 @@
 package com.patryk.app;
 
 import com.patryk.app.game_logic.GameLogicAPI;
-import com.patryk.app.game_logic.Player;
 import com.patryk.app.input.InputAPI;
 import com.patryk.app.output.OutputAPI;
 
 /**
+ * Manages rounds depending on settings
+ *
  * @author Patryk Kucharski
  */
 class RoundManager {
@@ -15,8 +16,6 @@ class RoundManager {
     private final OutputAPI outputAPI;
     private final GameLogicAPI gameLogicAPI;
     private int numberOfRounds;
-    private boolean weHaveAWinner = false;
-    private boolean weHaveADraw = false; // WTF?
 
     RoundManager(GameLogicAPI gameLogicAPI, OutputAPI outputAPI, InputAPI inputAPI, int numberOfRounds) {
         this.outputAPI = outputAPI;
@@ -31,10 +30,6 @@ class RoundManager {
             gameLogicAPI.resetBoard();
             resetGameOutcome();
             doARound(i);
-            //changeStartingPlayer();
-            if (weHaveAWinner || weHaveADraw) {
-                break;
-            }
         }
     }
 
@@ -51,10 +46,6 @@ class RoundManager {
     private void resetGameOutcome() {
         turnManager.doWeHaveAWinner = false;
         turnManager.doWeHaveADraw = false;
-    }
-
-    void giveAwayPointsToPlayers() {
-        // TODO: 02.04.19 implement
     }
 }
 

@@ -1,6 +1,8 @@
 package com.patryk.app.output;
 
 /**
+ * provides printer to other classes
+ *
  * @author Patryk Kucharski
  */
 public class OutputAPI {

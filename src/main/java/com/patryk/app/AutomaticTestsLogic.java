@@ -6,8 +6,12 @@ import java.util.List;
 import java.util.Map;
 
 /**
+ * automatic tests logic is stored here
+ * contains method to check all possible moves
+ *
  * @author Patryk Kucharski
  */
+
 class AutomaticTestsLogic {
 
 
@@ -24,7 +28,6 @@ class AutomaticTestsLogic {
         }
     }
 
-    //todo działa na wszytkie kombinacje
     List<String> autoDrawGenerator(int rows, int columns, int patternLength) {
         List<String> toReturn = new ArrayList<>();
         StringBuilder builder = new StringBuilder();
@@ -64,7 +67,6 @@ class AutomaticTestsLogic {
         return toReturn;
     }
 
-    //todo działa na wszystkie kombinacje
     List<String> autoHorizontalWinGenerator(int rows, int columns, int patternLength) {
         List<String> movesToWin = new ArrayList<>();
         StringBuilder builder = new StringBuilder();
@@ -91,7 +93,6 @@ class AutomaticTestsLogic {
         return movesToWin;
     }
 
-    //todo działa na wszystkie kombinacje
     List<String> autoWinVerticalGenerator(int rows, int columns, int patternLength) {
         List<String> movesToWin = new ArrayList<>();
         StringBuilder builder = new StringBuilder();
@@ -118,7 +119,6 @@ class AutomaticTestsLogic {
         return movesToWin;
     }
 
-    //todo to działa ale tylko na kwadracie lub rows<columns
     List<String> autoWinAntiDigonalGenerator(int rows, int columns, int patternLength) {
         List<String> movesToWin = new ArrayList<>();
         StringBuilder builder = new StringBuilder();
@@ -140,7 +140,6 @@ class AutomaticTestsLogic {
         return movesToWin;
     }
 
-    //todo to działa ale tylko na kwadracie i columns>rows
     List<String> autoWinDiagonalGenerator(int rows, int columns, int patternLength) {
         List<String> movesToWin = new ArrayList<>();
         StringBuilder builder = new StringBuilder();
@@ -190,7 +189,6 @@ class AutomaticTestsLogic {
         return movesToWin;
     }
 
-// TODO: 04.04.19 to działa rows>columns
     List<String> autoWinDiagonalGeneratorV2(int rows, int columns, int patternLength) {
         List<String> movesToWin = new ArrayList<>();
         StringBuilder builder = new StringBuilder();
@@ -211,7 +209,6 @@ class AutomaticTestsLogic {
         return movesToWin;
     }
 
-        //todo działa rows>columns
     List<String> autoWinAntiDiagonalGeneratorV2(int rows, int columns, int patternLength) {
 
         List<String> movesToWin = new ArrayList<>();

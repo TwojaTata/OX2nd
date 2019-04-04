@@ -1,9 +1,11 @@
 package com.patryk.app.game_logic;
 
 /**
+ * Represents board on which games are played
+ *
  * @author Patryk Kucharski
  */
-public class Board {//todo niepubliczne?
+public class Board {
 
     private final Marker[][] board;
     private BoardConfig boardConfig;
@@ -21,16 +23,11 @@ public class Board {//todo niepubliczne?
         return  boardConfig;
     }
 
-//    @Override
-//    public String toString() {
-////        return "Board{" +
-////                "board=" + Arrays.toString(board) +
-////                ", boardConfig=" + boardConfig +
-////                '}';
-//
-    void displayBoard(){ //todo poprawić
-            StringBuilder stringBuilder = new StringBuilder();
-
+    /**
+     * displays board in current state to console
+     *
+      */
+    void displayBoard(){
             System.out.print("   ");
             for (int i = 0; i < boardConfig.columns; i++) {
                 if (i + 1 > 9) {
@@ -62,9 +59,7 @@ public class Board {//todo niepubliczne?
             }
             System.out.println();
             System.out.println();
-
     }
-        //todo drukowanie!!! stołu
 
     /**
      * Sets up a board filled with Marker.BLANK enum,
@@ -88,11 +83,5 @@ public class Board {//todo niepubliczne?
 
     void putMarker(Coordinates coordinates, Player currentPlayer) {
         board[coordinates.row][coordinates.column] = currentPlayer.getMarker();
-    }
-
-    Board initializeDefaultBoard(){
-        Board board = new Board(BoardConfig.setDefaultBoardConfig());
-        board.fillBoardWithBlanks();
-        return board;
     }
 }
