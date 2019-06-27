@@ -2,6 +2,7 @@
 
 Second attempt to write it down
 simple OX game with configurable board, winning condition and language
+
 ##Prerequisites
 
 latest JDK and maven
