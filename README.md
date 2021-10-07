@@ -1,6 +1,6 @@
 #About project ox
 
-Second attempt to write it down
+Second attempt to write down
 simple OX game with configurable board, winning condition and language
 
 ##Prerequisites
